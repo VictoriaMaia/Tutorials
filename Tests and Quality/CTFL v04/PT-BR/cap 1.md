@@ -1,15 +1,22 @@
 [PT-BR]
 
+Essa explicação é baseada em:
+
+- [CTFL Syllabus v4.0](https://bstqb.online/docs/syllabus_ctfl_4.0br.pdf)
+- [Curso Preparatório para Certificação em Testes de Software CTFL (ISQTB) do professor Leonardo Carvalho - UDEMY](https://www.udemy.com/course/preparatorio-ctfl/?couponCode=OF83024E)
+
+
+
 # Capítulo 1 Fundamentos de Teste
 
-- [Capítulo 1 Fundamentos de Teste](#capítulo-1-fundamentos-de-teste)
-  - [1.1 O que é teste?](#11-o-que-é-teste)
-    - [FL-1.1.1 Identificar objetivos típicos de teste](#fl-111-identificar-objetivos-típicos-de-teste)
-    - [FL-1.1.2 Diferenciar teste de depuração](#fl-112-diferenciar-teste-de-depuração)
-  - [1.2 Por que os testes são necessários?](#12-por-que-os-testes-são-necessários)
-    - [FL-1.2.1 Exemplificar por que os testes são necessários](#fl-121-exemplificar-por-que-os-testes-são-necessários)
-    - [FL-1.2.2 Relembrar a relação entre testes e garantia de qualidade](#fl-122-relembrar-a-relação-entre-testes-e-garantia-de-qualidade)
-    - [FL-1.2.3 Distinguir entre causa raiz, erro, defeito e falha](#fl-123-distinguir-entre-causa-raiz-erro-defeito-e-falha)
+
+- [1.1 O que é teste?](#11-o-que-é-teste)
+  - [FL-1.1.1 Identificar objetivos típicos de teste](#fl-111-identificar-objetivos-típicos-de-teste)
+  - [FL-1.1.2 Diferenciar teste de depuração](#fl-112-diferenciar-teste-de-depuração)
+- [1.2 Por que os testes são necessários?](#12-por-que-os-testes-são-necessários)
+  - [FL-1.2.1 Exemplificar por que os testes são necessários](#fl-121-exemplificar-por-que-os-testes-são-necessários)
+  - [FL-1.2.2 Relembrar a relação entre testes e garantia de qualidade](#fl-122-relembrar-a-relação-entre-testes-e-garantia-de-qualidade)
+  - [FL-1.2.3 Distinguir entre causa raiz, erro, defeito e falha](#fl-123-distinguir-entre-causa-raiz-erro-defeito-e-falha)
 
 
 
@@ -63,19 +70,24 @@ Um dos pontos que eu acho que às vezes ficam mais confusos é a diferença dess
 
 >A pessoa erra gerando um defeito que produz a falha
 
-A pessoa (desenvolvedor ou não) erra na sua atividade, seja ela desenvolver uma aplicação ou definir um requisito, por exemplo. Existem muitos motivos para que esse erro surja como: pressa, complexidade do requisito, ambiguidade no que foi solicitado, etc
+Um dos pontos que eu acho que às vezes ficam mais confusos é a diferença desses tópicos. Mas uma frase que ajuda a entender o fluxo é:
+
+A pessoa erra gerando um defeito que produz a falha
+
+A pessoa (desenvolvedor ou não) erra. Ocorreu um erro ou um engano na hora de fazer a atividade seja uma atividade de definir requisitos ou a atividade de desenvolver. Existem muitos motivos para que esse erro surja como: pressa, pressão no prazo, falta de conhecimento, infraestrutura complexa, mudanças na tecnologia, etc.
 
  ↓
 
-gerando um defeito (bug). É algo errado ou faltando. Pode ser um requisito com defeito, ou um código defeituoso. Como foi dito antes, o teste pode ser feito em qualquer estágio de desenvolvimento, então o defeito não necessariamente tem que ser um código errado. É algo diferente do que foi definido como correto. 
-
+gerando um defeito (bug). É algo errado ou faltando. Se o erro ocorreu no começo do ciclo de desenvolvimento ele gerou um defeito na documentação, ou nas definições de requisitos, por exemplo. Se o erro foi na implementação de um código, o defeito acontece na execução do sistema fazendo com que ele atue de maneira errada.
+ 
  ↓
  
-que produz a falha. A falha é o resultado negativo do erro e do defeito, porém, fatores externos e/ou não controláveis podem gerar também a falha, como condições ambientais, falta de energia, etc.
+que produz a falha. A falha é o resultado do erro e do defeito, porém, fatores externos e/ou não controláveis podem gerar também a falha, como condições ambientais, falta de energia, etc. E existem falhas que ocorrem apenas em circunstâncias tão específicas que nunca aparecem.
 
  ↓
 
-Encontrando o defeito pode ser feita a investigação para encontrar a causa raiz do problema. A causa raiz é o motivo fundamental para a ocorrência de um problemas. 
-Lembra da depuração? Na depuração pode ser feita a investigação para encontrar a causa raiz.
+Quando ocorre a falha começa a investigação para descobrir a causa raiz. A causa raiz é o motivo fundamental que gerou aquela falha. 
+Lembra da depuração? No processo de depuração pode ser feita a investigação para encontrar a causa raiz.
+
 
 
