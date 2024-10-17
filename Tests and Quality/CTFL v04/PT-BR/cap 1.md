@@ -19,10 +19,8 @@ Essa explicação é baseada em:
     - [FL-1.3.1 Explicar os sete princípios de teste](#fl-131-explicar-os-sete-princípios-de-teste)
   - [1.4 Atividades de teste, Testware e Papeis de teste](#14-atividades-de-teste-testware-e-papeis-de-teste)
     - [FL-1.4.1 Resumir as diferentes atividades e tarefas de teste e FL-1.4.3 Diferenciar testware que dá suporte às atividades de teste](#fl-141-resumir-as-diferentes-atividades-e-tarefas-de-teste-e-fl-143-diferenciar-testware-que-dá-suporte-às-atividades-de-teste)
-  - [\*Carta de teste são utilizadas em testes exploratórios para guiar a execução. O teste exploratório vai ser explicado em detalhes em outra seção!](#carta-de-teste-são-utilizadas-em-testes-exploratórios-para-guiar-a-execução-o-teste-exploratório-vai-ser-explicado-em-detalhes-em-outra-seção)
     - [FL-1.4.2 Explicar o impacto do contexto no processo de teste](#fl-142-explicar-o-impacto-do-contexto-no-processo-de-teste)
     - [FL-1.4.4 Explicar o valor de manter a rastreabilidade](#fl-144-explicar-o-valor-de-manter-a-rastreabilidade)
-    - [FL-1.4.5 Comparar os diferentes papeis no teste](#fl-145-comparar-os-diferentes-papeis-no-teste)
 
 ## 1.1 O que é teste?
 
@@ -194,8 +192,8 @@ As atividades de teste e seus testware são:
   - Itens de cobertura
   - Requisitos para os testes, seja requisito de dados (o que de dados precisamos para testar) ou de ambiente (as ferramentas, software, hardware necessários)
 
-
 *Carta de teste são utilizadas em testes exploratórios para guiar a execução. O teste exploratório vai ser explicado em detalhes em outra seção!
+
 -----------
 -----------
 
@@ -296,4 +294,34 @@ Todos esses pontos vão fazer você definir:
 
 ### FL-1.4.4 Explicar o valor de manter a rastreabilidade
 
-### FL-1.4.5 Comparar os diferentes papeis no teste
+A rastreabilidade é um ponto importante no projeto. Ela pode:  
+  - dar suporte a avaliação da cobertura de teste: Se conseguimos dizer quais casos de teste temos para quais requisitos, conseguimos avaliar a cobertura dos nosso testes.
+  - dar suporte a avaliação dos riscos: Se conseguimos dizer quais resultados dos testes estão relacionados com os riscos mapeados, conseguimos avaliar se o risco ainda esta presente e qual o tamanho dele no projeto.
+  - determinar o impacto das mudanças nas features: Se você consegue rastrear quais cenários estão relacionados as features que irão sofrer mudanças, você consegue avaliar qual o impacto dessa mudança, se será necessário atualizar, remover ou adicionar cenários e o esforço para esse trabalho. 
+  - auxiliar auditorias de testes, mostrando o histórico dos testes, qual a frequência que o cenário mostra defeitos, quais cenários mostraram os defeitos críticos e assim por adiante.
+  - facilitar os relatórios de progresso e de conclusão dos testes
+  - fornecer informações para a avaliação da qualidade do produto como: a capacidade do processo, o progresso do projeto em relação aos objetivos, etc.
+
+
+Mas o que é a rastreabilidade? É a informação que conseguimos ter sobre a origem e destino de uma item do processo de teste. Por exemplo:
+
+Base de teste <-> testware
+
+A partir da base de teste foi gerade algum testware com cenário de teste. Ou seja, conseguimos dizer o destino do que foi gerado com aquela base de teste. 
+
+E a partir do testware eu consigo dizer de qual base de teste ele veio. Ou seja, conseguimos dizer qual a origem daquele cenário gerado.
+
+Nesse exemplo temos a rastreabilidade dos dois caminhos, a origem e o destino, tanto a base de teste -> testware, quanto testware -> base de teste. 
+
+
+Conseguimos manter a rastreabilidade em todo o processo de teste:
+
+![alt text](<images/Screenshot 2024-10-14 100439.png>)
+
+- Base de teste <-> testware vimos no exemplo acima
+- testware <-> resultados: Conseguimos dizer quais resultados são de quais testwares e quais testwares geraram quais resultados
+- resultados de teste <-> defeitos: Conseguimos dizer quais defeitos foram encontrados de quais resultados de teste e conseguimos dizer quais resultados acharam os defeitos.
+
+E se olhar para mais passos, vai seguir a mesma lógica. Se olhar-mos para base de teste <-> defeitos, podemos dizer quais partes da base de teste tiveram quais defeitos e vice-versa.
+
+
