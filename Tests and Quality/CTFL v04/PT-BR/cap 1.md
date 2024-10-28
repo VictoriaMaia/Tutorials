@@ -9,22 +9,27 @@ Essa explicação é baseada em:
 
 - [Capítulo 1 Fundamentos de Teste](#capítulo-1-fundamentos-de-teste)
   - [1.1 O que é teste?](#11-o-que-é-teste)
-    - [FL-1.1.1 Identificar objetivos típicos de teste](#fl-111-identificar-objetivos-típicos-de-teste)
-    - [FL-1.1.2 Diferenciar teste de depuração](#fl-112-diferenciar-teste-de-depuração)
+    - [1.1.1 Identificar objetivos típicos de teste](#111-identificar-objetivos-típicos-de-teste)
+    - [1.1.2 Diferenciar teste de depuração](#112-diferenciar-teste-de-depuração)
   - [1.2 Por que os testes são necessários?](#12-por-que-os-testes-são-necessários)
-    - [FL-1.2.1 Exemplificar por que os testes são necessários](#fl-121-exemplificar-por-que-os-testes-são-necessários)
-    - [FL-1.2.2 Relembrar a relação entre testes e garantia de qualidade](#fl-122-relembrar-a-relação-entre-testes-e-garantia-de-qualidade)
-    - [FL-1.2.3 Distinguir entre causa raiz, erro, defeito e falha](#fl-123-distinguir-entre-causa-raiz-erro-defeito-e-falha)
+    - [1.2.1 Exemplificar por que os testes são necessários](#121-exemplificar-por-que-os-testes-são-necessários)
+    - [1.2.2 Relembrar a relação entre testes e garantia de qualidade](#122-relembrar-a-relação-entre-testes-e-garantia-de-qualidade)
+    - [1.2.3 Distinguir entre causa raiz, erro, defeito e falha](#123-distinguir-entre-causa-raiz-erro-defeito-e-falha)
   - [1.3 Princípios de teste](#13-princípios-de-teste)
-    - [FL-1.3.1 Explicar os sete princípios de teste](#fl-131-explicar-os-sete-princípios-de-teste)
+    - [1.3.1 Explicar os sete princípios de teste](#131-explicar-os-sete-princípios-de-teste)
   - [1.4 Atividades de teste, Testware e Papeis de teste](#14-atividades-de-teste-testware-e-papeis-de-teste)
-    - [FL-1.4.1 Resumir as diferentes atividades e tarefas de teste e FL-1.4.3 Diferenciar testware que dá suporte às atividades de teste](#fl-141-resumir-as-diferentes-atividades-e-tarefas-de-teste-e-fl-143-diferenciar-testware-que-dá-suporte-às-atividades-de-teste)
-    - [FL-1.4.2 Explicar o impacto do contexto no processo de teste](#fl-142-explicar-o-impacto-do-contexto-no-processo-de-teste)
-    - [FL-1.4.4 Explicar o valor de manter a rastreabilidade](#fl-144-explicar-o-valor-de-manter-a-rastreabilidade)
+    - [1.4.1 Resumir as diferentes atividades e tarefas de teste e 1.4.3 Diferenciar testware que dá suporte às atividades de teste](#141-resumir-as-diferentes-atividades-e-tarefas-de-teste-e-143-diferenciar-testware-que-dá-suporte-às-atividades-de-teste)
+    - [1.4.2 Explicar o impacto do contexto no processo de teste](#142-explicar-o-impacto-do-contexto-no-processo-de-teste)
+    - [1.4.4 Explicar o valor de manter a rastreabilidade](#144-explicar-o-valor-de-manter-a-rastreabilidade)
+    - [1.4.5 Comparar os diferentes papeis no teste](#145-comparar-os-diferentes-papeis-no-teste)
+  - [1.5 Habilidades essenciais e boas práticas em testes](#15-habilidades-essenciais-e-boas-práticas-em-testes)
+    - [1.5.1 Habilidades genéricas necessárias para testes](#151-habilidades-genéricas-necessárias-para-testes)
+    - [1.5.2 Abordagem de equipe completa](#152-abordagem-de-equipe-completa)
+    - [1.5.3 Independência dos testes](#153-independência-dos-testes)
 
 ## 1.1 O que é teste?
 
-### FL-1.1.1 Identificar objetivos típicos de teste
+### 1.1.1 Identificar objetivos típicos de teste
 
 Para começar precisamos entender, o que é teste? Dado que você está trabalhando com uma equipe de desenvolvimento e que essa equipe está desenvolvendo um software (seja ele qual for), o teste é quem vai avaliar esse software alvo.
 
@@ -37,7 +42,7 @@ Então podemos definir alguns dos objetivos do teste como:
 - Reduzir o nível de risco de qualidade
 - Verificar se os requisitos foram atendidos
 
-### FL-1.1.2 Diferenciar teste de depuração
+### 1.1.2 Diferenciar teste de depuração
 
 A depuração diferente do teste vai se preocupar em encontrar as causas das falhas dos defeitos encontrados pelos testes e corrigi-las. Resumindo a depuração aplica 3 passos:
 
@@ -47,13 +52,13 @@ A depuração diferente do teste vai se preocupar em encontrar as causas das fal
 
 ## 1.2 Por que os testes são necessários?
 
-### FL-1.2.1 Exemplificar por que os testes são necessários
+### 1.2.1 Exemplificar por que os testes são necessários
 
 A gente já sabe que o teste vai validar o software alvo. Então pensando assim podemos afirmar que o teste é necessário como uma forma de controle de qualidade. Eles ajudam a atingir os objetivos acordados dentro do escopo do projeto.
 
 Só que essa qualidade não é válida apenas quando o software é desenvolvido, tem a possibilidade de aplicar essa validação de qualidade nos vários estágios do processo de desenvolvimento o que acaba sendo um meio econômico de detectar defeitos, já que quanto antes encontrar, mais rápido se concerta e o defeito não chega ao usuário.
 
-### FL-1.2.2 Relembrar a relação entre testes e garantia de qualidade
+### 1.2.2 Relembrar a relação entre testes e garantia de qualidade
 
 A gente viu que os testes são um tipo de controle de qualidade. O controle de qualidade ou Quality Control (QC), é uma abordagem orientada ao produto, ou seja, o objetivo dessa abordagem é garantir a qualidade do produto em si. Os resultados dos testes dessa abordagem são usados para gerar as correções dos defeitos encontrados por eles.
 
@@ -61,7 +66,7 @@ A gente viu que os testes são um tipo de controle de qualidade. O controle de q
 
 Agora, a garantia de qualidade ou Quality Assurance (QA) é uma abordagem preventiva, ela é voltada ao processo como um todo. Então, qualquer aprimoramento de processo, qualquer ação que faça as etapas de desenvolvimento melhorarem em qualidade é uma ação dessa abordagem. Os métodos incluem: testes, verificação de modelos, prova de exatidão, simulação e prototipagem. Os resultados dos testes dessa abordagem são usados para fornecer feedback sobre a performance dos processos de desenvolvimento.
 
-### FL-1.2.3 Distinguir entre causa raiz, erro, defeito e falha
+### 1.2.3 Distinguir entre causa raiz, erro, defeito e falha
 
 Um dos pontos que eu acho que às vezes ficam mais confusos é a diferença desses tópicos. Mas uma frase que ajuda a entender o fluxo é:
 
@@ -88,7 +93,7 @@ Lembra da depuração? No processo de depuração pode ser feita a investigaçã
 
 ## 1.3 Princípios de teste
 
-### FL-1.3.1 Explicar os sete princípios de teste
+### 1.3.1 Explicar os sete princípios de teste
 
 Temos 7 princípios de teste:
 
@@ -145,7 +150,7 @@ Lembrando que o processo de teste não é universal, não tem um jeito único pa
 Como essas atividades vão ser usadas e se vão ser usadas vai depender do contexto no qual você está inserido.
 
 
-### FL-1.4.1 Resumir as diferentes atividades e tarefas de teste e FL-1.4.3 Diferenciar testware que dá suporte às atividades de teste
+### 1.4.1 Resumir as diferentes atividades e tarefas de teste e 1.4.3 Diferenciar testware que dá suporte às atividades de teste
 
 As atividades de teste e seus testware são:
 
@@ -255,7 +260,7 @@ As atividades de teste e seus testware são:
 -----------
 
 
-### FL-1.4.2 Explicar o impacto do contexto no processo de teste
+### 1.4.2 Explicar o impacto do contexto no processo de teste
 
 Já foi informado aqui que o contexto é quem vai lhe direcionar para qual processo de teste será feito. Essa seção vai falar especificamente desse ponto, qual o impacto e quais pontos do contexto temos que estar de olho.
 
@@ -292,22 +297,22 @@ Todos esses pontos vão fazer você definir:
 - etc.
 
 
-### FL-1.4.4 Explicar o valor de manter a rastreabilidade
+### 1.4.4 Explicar o valor de manter a rastreabilidade
 
 A rastreabilidade é um ponto importante no projeto. Ela pode:  
-  - dar suporte a avaliação da cobertura de teste: Se conseguimos dizer quais casos de teste temos para quais requisitos, conseguimos avaliar a cobertura dos nosso testes.
-  - dar suporte a avaliação dos riscos: Se conseguimos dizer quais resultados dos testes estão relacionados com os riscos mapeados, conseguimos avaliar se o risco ainda esta presente e qual o tamanho dele no projeto.
-  - determinar o impacto das mudanças nas features: Se você consegue rastrear quais cenários estão relacionados as features que irão sofrer mudanças, você consegue avaliar qual o impacto dessa mudança, se será necessário atualizar, remover ou adicionar cenários e o esforço para esse trabalho. 
-  - auxiliar auditorias de testes, mostrando o histórico dos testes, qual a frequência que o cenário mostra defeitos, quais cenários mostraram os defeitos críticos e assim por adiante.
+  - dar suporte a avaliação da cobertura de teste: Se conseguimos dizer quais casos de teste temos para quais requisitos, conseguimos avaliar a cobertura dos nossos testes.
+  - dar suporte a avaliação dos riscos: Se conseguimos dizer quais resultados dos testes estão relacionados com os riscos mapeados, conseguimos avaliar se o risco ainda está presente e qual o tamanho dele no projeto.
+  - determinar o impacto das mudanças nas features: Se você consegue rastrear quais cenários estão relacionados às features que irão sofrer mudanças, você consegue avaliar qual o impacto dessa mudança, se será necessário atualizar, remover ou adicionar cenários e o esforço para esse trabalho. 
+  - auxiliar auditorias de testes, mostrando o histórico dos testes, qual a frequência que o cenário mostra defeitos, quais cenários mostraram os defeitos críticos e assim por diante.
   - facilitar os relatórios de progresso e de conclusão dos testes
   - fornecer informações para a avaliação da qualidade do produto como: a capacidade do processo, o progresso do projeto em relação aos objetivos, etc.
 
 
-Mas o que é a rastreabilidade? É a informação que conseguimos ter sobre a origem e destino de uma item do processo de teste. Por exemplo:
+Mas o que é a rastreabilidade? É a informação que conseguimos ter sobre a origem e destino de um item do processo de teste. Por exemplo:
 
 Base de teste <-> testware
 
-A partir da base de teste foi gerade algum testware com cenário de teste. Ou seja, conseguimos dizer o destino do que foi gerado com aquela base de teste. 
+A partir da base de teste foi gerado algum testware com cenário de teste. Ou seja, conseguimos dizer o destino do que foi gerado com aquela base de teste. 
 
 E a partir do testware eu consigo dizer de qual base de teste ele veio. Ou seja, conseguimos dizer qual a origem daquele cenário gerado.
 
@@ -322,6 +327,85 @@ Conseguimos manter a rastreabilidade em todo o processo de teste:
 - testware <-> resultados: Conseguimos dizer quais resultados são de quais testwares e quais testwares geraram quais resultados
 - resultados de teste <-> defeitos: Conseguimos dizer quais defeitos foram encontrados de quais resultados de teste e conseguimos dizer quais resultados acharam os defeitos.
 
-E se olhar para mais passos, vai seguir a mesma lógica. Se olhar-mos para base de teste <-> defeitos, podemos dizer quais partes da base de teste tiveram quais defeitos e vice-versa.
+E se olhar para mais passos, vai seguir a mesma lógica. Se olharmos para base de teste <-> defeitos, podemos dizer quais partes da base de teste tiveram quais defeitos e vice-versa.
 
+
+### 1.4.5 Comparar os diferentes papeis no teste
+
+No syllabus existe apenas dois tipos de papeis no teste. Um mais voltado para a gestão, o gerenciamento dos testes e o operacional, quem vai realmente mexer no teste em si.
+
+
+1. Gerenciamento de teste
+
+Dentro do gerenciamento temos as atividades de:
+
+- Responsabilidade geral pelo processo de teste, pela equipe de teste e pela liderança das atividades de teste
+- Atividades de planejamento, monitoramento, controle e conclusão de testes. 
+
+São atividades que envolvem relatórios, análises e repasse de informações sobre o progresso do teste.
+
+2. Testador
+
+Ele tem a responsabilidade geral no aspecto mais técnico do teste. 
+
+- Atividade de analisar, modelar, implementar e executar os testes
+- Avaliar as características não funcionais do projeto, como por exemplo: como está a eficiência, confiabilidade, usabilidade, segurança, compatibilidade e portabilidade dos teste
+
+
+## 1.5 Habilidades essenciais e boas práticas em testes
+
+### 1.5.1 Habilidades genéricas necessárias para testes
+
+Existem algumas habilidades genéricas que podem auxiliar você a melhorar seu trabalho como testador. São elas:
+
+- Conhecimento sobre testes. Se você trabalha com testes é bom que você tenha conhecimento sobre testes em si para aumentar a eficácia dos testes, por exemplo, entender as técnicas de teste, os tipos de testes, entre outros tópicos.
+- Meticulosidade, cuidado, curiosidade, atenção aos detalhes, ser metódico. Essas skills podem te ajudar a identificar defeitos, especialmente aqueles que são difíceis de encontrar.
+- Boas habilidades de comunicação, ser um bom ouvinte, e trabalhar em equipe podem te ajudar a interagir efetivamente com todos os stakeholders, transmitir informações a outras pessoas, ser compreendido, e conseguir relatar e discutir defeitos
+- Pensamento analítico, pensamento crítico, criatividade podem te ajudar a aumentar a eficácia dos testes
+- Conhecimento técnico. Esses conhecimentos técnicos diferem do primeiro tópico no sentido de você conhecer ferramentas que te ajudem a fazer e executar os seus testes. Seja uma linguagem de programação ou framework de teste, ou ferramentas de gravação para fazer os testes exploratórios, ferramentas de gerenciamento para os test plan, enfim, qualquer ferramenta que te ajude nos testes.
+- Conhecimento do domínio. O domínio aqui está relacionado ao seu projeto. É essencial que você entenda o que é e como funciona o projeto no qual você está testando. Esse conhecimento vai te ajudar também a se comunicar com usuários finais/representantes de negócio
+
+
+### 1.5.2 Abordagem de equipe completa
+
+Essa é uma prática proveniente da Extreme Programming e diz que:
+
+> Na abordagem de equipe completa, qualquer membro da equipe com o conhecimento e as habilidades necessárias pode executar qualquer tarefa, e todos são responsáveis pela qualidade.
+
+Essa abordagem tem algumas vantagens e desvantagens. Com essa técnica ocorre uma colaboração entre as pessoas do time e o pessoal de qualidade pode ajudar fornecendo conhecimento sobre testes para os outros membros. Porém essa prática não necessariamente é a melhor para todos os contextos, por exemplo, em projetos mais críticos pode ser necessário um alto nível de independência dos testes, os testadores serem uma equipe separada.
+
+
+### 1.5.3 Independência dos testes
+
+A independência dos testes é o quanto o teste está distante do desenvolvimento. Existem vários tipos de independência, quanto mais isolado o teste for do desenvolvimento, mais ele vai ser independente. São eles:
+
+1. Sem independência
+
+Não tem essa separação de quem testa e quem desenvolve. O autor do desenvolvimento vai testar o que ele está fazendo.
+
+2. Alguma independência
+
+Pessoas da mesma equipe testam o trabalho entre si, mas nunca a mesma pessoa. Nessa equipe pode ou não ter testadores. 
+Exemplo, você como desenvolvedor vai testar o código do amigo desenvolvedor, ou você como testador vai testar o código do colega desenvolvedor, mas lembrando que ambos trabalham na mesma equipe.
+
+3. Alta independência
+
+A alta independência quem vai testar o trabalho desenvolvido são pessoas que estão fora da equipe autora, mas podem ser da mesma organização.
+
+4. Altíssima independência
+
+Essa independência é quando a equipe testadora já não faz parte nem da sua organização, ela faz parte de uma empresa terceirizada que ficou como responsável por validar o produto gerado pelo seu time.
+
+
+De qualquer forma a independência pelo tamanho que seja tem suas vantagens e desvantagens. São elas:
+
+Pela equipe de teste ser separada da equipe de desenvolvimento é possível encontrar diferentes tipos de falhas. Eles vão ter uma visão diferente do desenvolvimento e não terão o contexto daquela equipe.
+Assim os testadores podem ser mais imparciais. Sem o contexto, e sem estar presente nas discussões sobre o produto, os testadores podem ficar livres para pensar em diferentes fluxos e com isso ter mais ideias para cenários de teste.
+Uma outra vantagem é que o testador que não está inserido no contexto do desenvolvimento pode ter dúvidas e desafios sobre o produto que a equipe autora não chegou a pensar.
+  
+
+Só que nem tudo são flores, também temos desvantagens: O testador estar longe pode acabar gerando um problema de comunicação, no sentido de demorar vir o feedback do teste ou até mesmo o relacionamento entre as equipes (teste e desenvolvimento) não ser bom. 
+A demora gerada pode ser vista como um gargalo gerado pelos testes e gerar um conflito para a obtenção dessa etapa no projeto. 
+Um outro ponto é que os desenvolvedores podem se abster do senso de responsabilidade da qualidade, pensando em jogar essa responsabilidade apenas no time que está testando e não tentar trazer a qualidade para o seu lado. 
+Um último ponto é que por mais vantagens que vimos estar longe do contexto ajuda a desenvolver mais cenários, também pode atrapalhar você como testador não ter informações importantes sobre o produto que podem te ajudar a entendê-lo.
 
