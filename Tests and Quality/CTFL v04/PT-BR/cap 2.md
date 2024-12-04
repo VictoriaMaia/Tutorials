@@ -64,3 +64,13 @@ E fica só na automação? Não, os testes manuais que precisam ser feitos vão 
 
 
 ### 2.1.2 Relembrar as boas práticas de teste que se aplicam a todos os ciclos de vida de desenvolvimento de software.
+
+- Para cada atividade de desenvolvimento há uma atividade de teste correspondente. Para que todo o desenvolvimento esteja sujeito ao controle de qualidade
+- Aplicar diferentes níveis de teste. Cada nível teste tem objetivos diferentes o que permite que você teste vários aspectos e evite redundância
+- Durante a fase de desenvolvimento, a análise e a modelagem dos testes já podem ser feitas. Como o desenvolvimento já está botando em práticas as definições dos requisitos, os testadores já tem uma noção de como o sistema deve funcionar e com isso já podem ir modelando seus cenários, além de entender como fazer esses testes e começar a preparar o ambiente necessário.
+- Os testadores podem se envolver na revisão dos produtos de trabalho assim que os rascunhos estiverem disponíveis para que seja feito a detecção defeitos seguindo a estratégia shift-left*. Avaliar o rascunho pode ajudar nas definições necessárias. Se a revisão começar com as primeiras versões, podem surgir dúvidas e ideias capazes de melhorar ainda mais o documento que está sendo feito.
+
+*estratégia shift-left: Trazer o teste o mais à esquerda dos processos de desenvolvimento. Ou seja, nas etapas mais iniciais do processo.
+
+
+
