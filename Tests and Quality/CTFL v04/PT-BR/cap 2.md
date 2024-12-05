@@ -12,6 +12,7 @@ Essa explicação é baseada em:
   - [2.1 Testes no contexto de um Ciclo de Vida de Desenvolvimento de Software](#21-testes-no-contexto-de-um-ciclo-de-vida-de-desenvolvimento-de-software)
     - [2.1.1 Explicar o impacto do ciclo de vida de desenvolvimento de software escolhido nos testes.](#211-explicar-o-impacto-do-ciclo-de-vida-de-desenvolvimento-de-software-escolhido-nos-testes)
     - [2.1.2 Relembrar as boas práticas de teste que se aplicam a todos os ciclos de vida de desenvolvimento de software.](#212-relembrar-as-boas-práticas-de-teste-que-se-aplicam-a-todos-os-ciclos-de-vida-de-desenvolvimento-de-software)
+    - [2.1.3 Relembrar os exemplos de abordagens de desenvolvimento que priorizam o teste](#213-relembrar-os-exemplos-de-abordagens-de-desenvolvimento-que-priorizam-o-teste)
 
 
 ## 2.1 Testes no contexto de um Ciclo de Vida de Desenvolvimento de Software
@@ -72,5 +73,51 @@ E fica só na automação? Não, os testes manuais que precisam ser feitos vão 
 
 *estratégia shift-left: Trazer o teste o mais à esquerda dos processos de desenvolvimento. Ou seja, nas etapas mais iniciais do processo.
 
+
+### 2.1.3 Relembrar os exemplos de abordagens de desenvolvimento que priorizam o teste
+
+Existem abordagens de desenvolvimento baseadas em testes, em que os testes é que vão direcionar como o desenvolvimento será feito. Cada uma dessas abordagens segue o princípio do teste antecipado pois o teste é definido e feito antes do código ser escrito. 
+
+----
+- TDD (Test Driven Development ou Desenvolvimento Orientado por Testes)
+  
+![alt text](<images/Captura de tela 2024-12-04 203714.png>)
+
+  Essa imagem representa bem a ideia do TDD. O TDD também é conhecido como "red, green, refactor" ("vermelho, verde, refatoração").
+
+  1) O teste é escrito antes de tudo. Se não tem sistema para executar o comportamento que foi criado o teste ele logicamente vai falhar. Por isso o vermelho, de falha.
+  2) Ai vem o desenvolvimento da feature seguindo o cenário de teste, seguindo o comportamento desejado que vai fazer aquele teste passar. Depois da implementação o teste vai passar. Por isso o verde, de teste passou, o teste teve sucesso. 
+  3) Ai em seguida vem a refatoração caso exista alguma atualização necessária no cenário. Ou a feature precisou ter mudanças na sua definição, ou precisou de mais cenários, etc. Nesse ponto terá a atualização necessária dos testes.
+  4) E ai o ciclo volta a acontecer. É feito mais cenários, de outras features. O desenvolvedor vai entender o cenário e implementar o comportamento desejado. O teste vai começar a passar e depois será analisado se precisa ou não de atualização no código de teste ou no do produto.
+
+Lembrando que: Esse tipo de abordagem é utilizando testes de componentes ou de unidadee automatizados.
+
+---
+- ATDD (Accept Test Driven Development ou Desenvolvimento Orientado por Testes de Aceite)
+
+![alt text](<images/Captura de tela 2024-12-04 210103.png>)
+
+  Segue a mesma ideia do TDD, mas agora seguindo testes de aceite como parte do processo de desenho do sistema. Então aqui subimos um pouco o nível dos testes. Qual o fluxo?
+
+  1) Ocorre um debate sobre as histórias de usuário. O que será feito e aonde querem chegar.
+  2) Há um refinamento da história de usuário com partes mais tecnicas de como será desenvolvido e a criação dos testes seguindo essas histórias
+  3) Em seguida vem a implementação seguindo os testes de aceite desenvolvidos. E aqui pode ou não utilizar o TDD nas partes mais técnicas do desenvolvimento, é opcional, mas recomendado. Lembre que existem níveis de testes. Eles não excludentes, eu posso ter testes de aceites e testes de unidade, cada um validando uma parte do projeto.
+  4) No fim temos uma apresentação dos resultados e com essa apresentação seguimos novamente o fluxo
+  5) Terá as discussões se precisam alterar ou se vão fazer novas histórias, o refinamento das discussões e criação ou atualização dos cenários, a implementação pra satisfazer os novos cenários e por fim novas apresentações para avaliações.
+
+---
+- BDD (Behavior Driven Development ou Desenvolvimento Orientado por Comportamento)
+
+  Nesse modelo o teste vai expressar utilizando linguagem natural os comportamentos que serão validados de forma que os stakeholders entendam de forma fácil o que o cenário faz. Geralmente é utilizado o formato Dado/Quando/Então.
+
+  Ex: 
+    
+    **Dado** que o usuário acessa a tela de login
+    
+    **Quando** o usuário insere as informações de usuario e senha corretamente
+    
+    **Então** o login deverá ser feito com sucesso 
+
+Com isso podemos interpretar que não faz sentido utilizar o BDD em processos apenas de testes, ja que ele é uma ferramenta auxiliadora pra o desenvolvimento. Se o seu time e o stakeholders não precisam analisar esses cenários, apenas o time de QA quem vai consumir essas informações, faz sentido utilizar outras ferramentas de testes que podem auxiliar melhor o QA e possibilitar adicionar mais detalhes técnicos
 
 
