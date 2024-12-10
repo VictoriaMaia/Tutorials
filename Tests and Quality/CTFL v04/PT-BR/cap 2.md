@@ -13,6 +13,7 @@ Essa explicação é baseada em:
     - [2.1.1 Explicar o impacto do ciclo de vida de desenvolvimento de software escolhido nos testes.](#211-explicar-o-impacto-do-ciclo-de-vida-de-desenvolvimento-de-software-escolhido-nos-testes)
     - [2.1.2 Relembrar as boas práticas de teste que se aplicam a todos os ciclos de vida de desenvolvimento de software.](#212-relembrar-as-boas-práticas-de-teste-que-se-aplicam-a-todos-os-ciclos-de-vida-de-desenvolvimento-de-software)
     - [2.1.3 Relembrar os exemplos de abordagens de desenvolvimento que priorizam o teste](#213-relembrar-os-exemplos-de-abordagens-de-desenvolvimento-que-priorizam-o-teste)
+    - [2.1.4 Resumir como o DevOps pode ter um impacto nos testes](#214-resumir-como-o-devops-pode-ter-um-impacto-nos-testes)
 
 
 ## 2.1 Testes no contexto de um Ciclo de Vida de Desenvolvimento de Software
@@ -88,9 +89,9 @@ Existem abordagens de desenvolvimento baseadas em testes, em que os testes é qu
   1) O teste é escrito antes de tudo. Se não tem sistema para executar o comportamento que foi criado o teste ele logicamente vai falhar. Por isso o vermelho, de falha.
   2) Ai vem o desenvolvimento da feature seguindo o cenário de teste, seguindo o comportamento desejado que vai fazer aquele teste passar. Depois da implementação o teste vai passar. Por isso o verde, de teste passou, o teste teve sucesso. 
   3) Ai em seguida vem a refatoração caso exista alguma atualização necessária no cenário. Ou a feature precisou ter mudanças na sua definição, ou precisou de mais cenários, etc. Nesse ponto terá a atualização necessária dos testes.
-  4) E ai o ciclo volta a acontecer. É feito mais cenários, de outras features. O desenvolvedor vai entender o cenário e implementar o comportamento desejado. O teste vai começar a passar e depois será analisado se precisa ou não de atualização no código de teste ou no do produto.
+  4) E aí o ciclo volta a acontecer. É feito mais cenários, de outras features. O desenvolvedor vai entender o cenário e implementar o comportamento desejado. O teste vai começar a passar e depois será analisado se precisa ou não de atualização no código de teste ou no do produto.
 
-Lembrando que: Esse tipo de abordagem é utilizando testes de componentes ou de unidadee automatizados.
+Lembrando que: Esse tipo de abordagem é utilizando testes de componentes ou de unidades automatizadas.
 
 ---
 - ATDD (Accept Test Driven Development ou Desenvolvimento Orientado por Testes de Aceite)
@@ -100,10 +101,10 @@ Lembrando que: Esse tipo de abordagem é utilizando testes de componentes ou de 
   Segue a mesma ideia do TDD, mas agora seguindo testes de aceite como parte do processo de desenho do sistema. Então aqui subimos um pouco o nível dos testes. Qual o fluxo?
 
   1) Ocorre um debate sobre as histórias de usuário. O que será feito e aonde querem chegar.
-  2) Há um refinamento da história de usuário com partes mais tecnicas de como será desenvolvido e a criação dos testes seguindo essas histórias
-  3) Em seguida vem a implementação seguindo os testes de aceite desenvolvidos. E aqui pode ou não utilizar o TDD nas partes mais técnicas do desenvolvimento, é opcional, mas recomendado. Lembre que existem níveis de testes. Eles não excludentes, eu posso ter testes de aceites e testes de unidade, cada um validando uma parte do projeto.
+  2) Há um refinamento da história de usuário com partes mais técnicas de como será desenvolvido e a criação dos testes seguindo essas histórias
+  3) Em seguida vem a implementação seguindo os testes de aceite desenvolvidos. E aqui pode ou não utilizar o TDD nas partes mais técnicas do desenvolvimento, é opcional, mas recomendado. Lembre que existem níveis de testes. Eles não são excludentes, eu posso ter testes de aceites e testes de unidade, cada um validando uma parte do projeto.
   4) No fim temos uma apresentação dos resultados e com essa apresentação seguimos novamente o fluxo
-  5) Terá as discussões se precisam alterar ou se vão fazer novas histórias, o refinamento das discussões e criação ou atualização dos cenários, a implementação pra satisfazer os novos cenários e por fim novas apresentações para avaliações.
+  5) Terá as discussões se precisam alterar ou se vão fazer novas histórias, o refinamento das discussões e criação ou atualização dos cenários, a implementação para satisfazer os novos cenários e por fim novas apresentações para avaliações.
 
 ---
 - BDD (Behavior Driven Development ou Desenvolvimento Orientado por Comportamento)
@@ -114,10 +115,33 @@ Lembrando que: Esse tipo de abordagem é utilizando testes de componentes ou de 
     
     **Dado** que o usuário acessa a tela de login
     
-    **Quando** o usuário insere as informações de usuario e senha corretamente
+    **Quando** o usuário insere as informações de usuário e senha corretamente
     
     **Então** o login deverá ser feito com sucesso 
 
-Com isso podemos interpretar que não faz sentido utilizar o BDD em processos apenas de testes, ja que ele é uma ferramenta auxiliadora pra o desenvolvimento. Se o seu time e o stakeholders não precisam analisar esses cenários, apenas o time de QA quem vai consumir essas informações, faz sentido utilizar outras ferramentas de testes que podem auxiliar melhor o QA e possibilitar adicionar mais detalhes técnicos
+Com isso podemos interpretar que não faz sentido utilizar o BDD em processos apenas de testes, já que ele é uma ferramenta auxiliar para o desenvolvimento. Se o seu time e o stakeholders não precisam analisar esses cenários, apenas o time de QA quem vai consumir essas informações, faz sentido utilizar outras ferramentas de testes que podem auxiliar melhor o QA e possibilitar adicionar mais detalhes técnicos
 
 
+### 2.1.4 Resumir como o DevOps pode ter um impacto nos testes
+
+Primeiro vamos entender o que é o DevOps. O DevOps não se resume apenas a ferramentas, ele é uma abordagem organizacional que ajuda a unir o desenvolvimento com as operações. Em outras palavras, o DevOps vai ajudar o time em toda a parte da infraestrutura e integração, então ele é quem estrutura pro código que os desenvolvedores criam para que possa ser disponibilizado de forma mais fácil para testes e para os ambientes de produção e ser integrado nas ferramentas necessárias.
+
+Ganhos e Benefícios do DevOps:
+
+- Autonomia da equipe: A equipe não precisa depender de equipes externas para resolver algum conflito de infraestrutura
+- Feedback rápido: Com a integração do código desenvolvido para os ambientes de teste é mais fácil de se ter um feedback sobre esse código. Se tem bug, se as atualizações do código interferiram no funcionamento do que já existia verificando sempre se está tudo pronto para ir para produção.
+- Integração Contínua (Continuous Integration CI). O CI é a integração contínua do código para os testes. Então, sempre que uma versão do código é terminada, os testes serão feitos de maneira automática, validando e fornecendo os feedbacks necessários. O CI promove uma abordagem shift-left incentivando os desenvolvedores a sempre enviar códigos de alta qualidade.
+- Entrega Contínua (Continuous Delivery CD). O CD é a entrega contínua do código aos usuários.
+- Promove processos automatizados. A ideia é que sempre tenha um processo de CI/CD automatizado para facilitar ambientes de testes estáveis e reduzir a necessidade de testes manuais repetitivos. (Não quer dizer que será erradicado de vez os testes manuais, porque testes manuais são importantes, mas aqueles que são repetitivos, sempre executam os mesmo passos, podem ser transformados em testes automatizados.)
+- Reduz o risco de regressão. Já que sempre serão feitos testes a cada entrega do código de forma automatizada e devido a escala e ao alcance dessa automação, pode-se diminuir o risco de bugs escondidos que possam interferir no funcionamento do produto no futuro.
+
+Todos esses benefícios permite que as equipes criem, testes e liberem os códigos de forma mais rápido e com uma maior qualidade
+
+
+Riscos e Desafios do DevOps:
+
+- O pipeline de entrega de DevOps deve ser definido e estabelecido. O Desafio aqui é o conhecimento necessário para fazer toda essa definição, quais ferramentas vão ser utilizadas, como o processo vai ser feito e como vão ser mantidas. Porque a manutenção também é importante, pois sempre haverá atualizações seja no processo ou nas ferramentas.
+- A automação de testes pode requerer recursos adicionais e pode ser difícil de estabelecer e manter essa automação. Esse desafio é bem parecido com o anterior, a mesma preocupação de como fazer, o que escolher de ferramentas, como integrar, como manter, mas olhando para a automação dos testes em si.
+
+
+> Lembrando que. Toda essa ideia de DevOps só é possível se tiver um alto nível de automação nos testes. 
