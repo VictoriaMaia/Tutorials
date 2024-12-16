@@ -14,6 +14,7 @@ Essa explicação é baseada em:
     - [2.1.2 Relembrar as boas práticas de teste que se aplicam a todos os ciclos de vida de desenvolvimento de software.](#212-relembrar-as-boas-práticas-de-teste-que-se-aplicam-a-todos-os-ciclos-de-vida-de-desenvolvimento-de-software)
     - [2.1.3 Relembrar os exemplos de abordagens de desenvolvimento que priorizam o teste](#213-relembrar-os-exemplos-de-abordagens-de-desenvolvimento-que-priorizam-o-teste)
     - [2.1.4 Resumir como o DevOps pode ter um impacto nos testes](#214-resumir-como-o-devops-pode-ter-um-impacto-nos-testes)
+    - [2.1.5 Explicar a abordagem shift-lef](#215-explicar-a-abordagem-shift-lef)
 
 
 ## 2.1 Testes no contexto de um Ciclo de Vida de Desenvolvimento de Software
@@ -145,3 +146,20 @@ Riscos e Desafios do DevOps:
 
 
 > Lembrando que. Toda essa ideia de DevOps só é possível se tiver um alto nível de automação nos testes. 
+
+
+### 2.1.5 Explicar a abordagem shift-lef
+
+O shift-left é um sinônimo para testes antecipados. A ideia é ser uma abordagem que traz o teste para as etapas mais iniciais do SDLC, antes mesmo do código ser desenvolvido. Porém isso não implica dizer que depois da implementação não haverá testes, tem que ter os testes sim, a ideia é aumentar os testes adicionando no começo do processo.
+
+Alguns exemplos de práticas do shift-left:
+
+1. Revisar as especificações do projeto. Essas revisões podem trazer dúvidas e olhares sobres possíveis defeitos como ambiguidade, incompletude e inconsistências. E a ideia é a mesma, o quanto antes for encontrado um bug pode ser evitado.
+2. Escrever os cenários de testes antes do código ser escrito e realizar esses testes durante a implementação do código
+3. Utilizar CI/CD para poder testar o código sempre que uma entrega for feita. Esse acompanhamento do código-fonte.
+4. Concluir a análise estática do código antes do teste dinâmico ou como parte do processo de automação como validação para o código ser aceito no repositório. Essa é a revisão do código e a utilização de ferramentas que analisam se o código está bem escrito segundo um conjunto de regras pré estabelecidas.
+5. Realizar testes não funcionais sempre que possível. Geralmente esse tipo de teste é realizado em etapas posteriores.
+
+
+Essa abordagem pode resultar em um esforço ou custos maiores no início do projeto, mas se espera que tenha como resultado uma economia nos esforços e custos no final. Ja que a ideia aqui é adiantar as validações ao máximo para que diminua o risco de ter bug no final. 
+
