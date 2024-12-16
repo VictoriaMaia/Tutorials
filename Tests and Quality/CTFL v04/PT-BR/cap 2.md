@@ -15,6 +15,8 @@ Essa explicação é baseada em:
     - [2.1.3 Relembrar os exemplos de abordagens de desenvolvimento que priorizam o teste](#213-relembrar-os-exemplos-de-abordagens-de-desenvolvimento-que-priorizam-o-teste)
     - [2.1.4 Resumir como o DevOps pode ter um impacto nos testes](#214-resumir-como-o-devops-pode-ter-um-impacto-nos-testes)
     - [2.1.5 Explicar a abordagem shift-lef](#215-explicar-a-abordagem-shift-lef)
+    - [2.1.6  Explicar como as retrospectivas podem ser usadas como um mecanismo de melhoria de processos.](#216--explicar-como-as-retrospectivas-podem-ser-usadas-como-um-mecanismo-de-melhoria-de-processos)
+  - [2.2 Níveis de Teste e Tipos de Teste](#22-níveis-de-teste-e-tipos-de-teste)
 
 
 ## 2.1 Testes no contexto de um Ciclo de Vida de Desenvolvimento de Software
@@ -163,3 +165,32 @@ Alguns exemplos de práticas do shift-left:
 
 Essa abordagem pode resultar em um esforço ou custos maiores no início do projeto, mas se espera que tenha como resultado uma economia nos esforços e custos no final. Ja que a ideia aqui é adiantar as validações ao máximo para que diminua o risco de ter bug no final. 
 
+
+### 2.1.6  Explicar como as retrospectivas podem ser usadas como um mecanismo de melhoria de processos.
+
+A retrospectiva é uma reunião pós entrega em que todo o time participa. Pode ser uma reunião a cada final do sprint ou a cada entrega importante, depende do modelo específico de SDLC que o projeto está seguindo.
+
+Nessa reunião são discutido pontos sobre o trabalho realizado durante o período da entrega ou da sprint:
+  - O que foi bem-sucedido? 
+      Aqui é abordado pontos que você viu que foi legal. Exemplo: a ajuda que alguém te deu, você pode levantar como um ponto positivo. A equipe de desenvolvimento fez um teste super legal que trouxe benefícios pro projeto, é algo positivo. A comunicação entre time foi bem, se entenderam e o trabalho foi fluido, também é algo positivo. Então nesse ponto são todas as situações que você considera algo positivo dentro do período de tempo que está sendo analisado.
+
+  - O que não foi bem?
+      Aqui é o inverso do ponto anterior. O que não foi legal e poderia ter ocorrido de um jeito melhor? Exemplo: Os testes atrasaram horrores e a entrega não pode ser feita, é um ponto negativo. A comunicação do que deveria ser feito foi ruim e houve uns conflitos de atividade e entrega, é um ponto ruim. Os devs não estão testando, pode ser um ponto ruim. 
+
+  - O que podemos fazer para melhorar?
+      Não adianta nada só reclamar né? Não se resolve nada reclamando. Então para cada ponto negativo levantado, é discutido uma ação de melhoria, algo que resolva o problema abordado e que na próxima retrospectiva não apareça mais esse problema. 
+
+
+Essa é a ideia bonitinha de como é uma retrospectiva. Agora o que exatamente essa reunião tem haver com testes e qualidade?
+
+Como essa reunião reúne pontos em relação ao trabalho e todos do time participam é inevitável que apareça algum ponto de positivo ou negativo sobre os testes. E é aí que podemos utilizar esses feedbacks para melhorar o processo de qualidade. Os típicos benefícios que os testes podem adquirir são:
+
+- Se algum ponto de melhoria for em relação ao processo de teste, podemos ter um aumento da eficácia/eficiência dos testes e da qualidade do material de teste.
+- Se algum ponto for em relação a equipe, seja que a equipe precisa aprender sobre algo novo, ou se é necessário haver uma comunicação melhor ajuda a ter um melhor vínculo e aprendizado da equipe e uma melhor cooperação entre desenvolvimento e testes
+- Se algum ponto for relacionado a qualquer elemento da base de teste, seja um requisito estranho ou um dado faltando, traz a melhoria na qualidade da base de teste.
+
+Enfim, qualquer melhoria apresentada nesta reunião pode ser uma ação de melhoria no processo de teste e esses resultados normalmente fazem parte do relatório de conclusão do teste (vamos ver isso mais tarde 5.3.2). 
+
+
+
+## 2.2 Níveis de Teste e Tipos de Teste
