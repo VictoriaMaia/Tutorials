@@ -17,6 +17,9 @@ Essa explicação é baseada em:
     - [2.1.5 Explicar a abordagem shift-lef](#215-explicar-a-abordagem-shift-lef)
     - [2.1.6  Explicar como as retrospectivas podem ser usadas como um mecanismo de melhoria de processos.](#216--explicar-como-as-retrospectivas-podem-ser-usadas-como-um-mecanismo-de-melhoria-de-processos)
   - [2.2 Níveis de Teste e Tipos de Teste](#22-níveis-de-teste-e-tipos-de-teste)
+    - [2.2.1 Distinguir os diferentes níveis de teste.](#221-distinguir-os-diferentes-níveis-de-teste)
+    - [2.2.2 Distinguir os diferentes tipos de teste.](#222-distinguir-os-diferentes-tipos-de-teste)
+    - [2.2.3 Distinguir o teste de confirmação do teste de regressão.](#223-distinguir-o-teste-de-confirmação-do-teste-de-regressão)
 
 
 ## 2.1 Testes no contexto de um Ciclo de Vida de Desenvolvimento de Software
@@ -194,3 +197,67 @@ Enfim, qualquer melhoria apresentada nesta reunião pode ser uma ação de melho
 
 
 ## 2.2 Níveis de Teste e Tipos de Teste
+
+### 2.2.1 Distinguir os diferentes níveis de teste.
+
+Os níveis de teste são grupos de atividades realizadas no software em um determinado estágio de desenvolvimento e para partes específicas do software. Eles não são excludentes, podem ser aplicados em um mesmo momento do projeto. 
+
+Em modelos sequenciais do SDLC os níveis de teste geralmente são definidos de forma que os critérios de saída de um nível façam parte dos critérios de entrada do nível seguinte. Em modelos iterativos pode ser que essa ideia não se aplique.
+
+Cada nível tem os seguintes atributos:
+  - Objeto de teste (o que está sendo testado, é um componente, é o sistema como um todo, é uma funcionalidade específica?)
+  - Objetivo do teste (o que você quer validar?)
+  - Base de teste (o conteúdos que derivam os casos de teste)
+  - Defeitos e falhas
+  - Abordagem e responsabilidades
+  - Ambiente de teste adequado
+
+No syllabus existem 5 níveis de teste:
+
+---
+> Teste de componente / Teste de unidade
+
+  Esse nível foca na parte menor do código. Um componente, uma função. Como é algo bem específico, então esses testes vão precisar utilizar do código para que se compreenda quais são os componentes, o que eles fazem e como podem ser testados. Por isso geralmente quem desenvolve esses testes são os desenvolvedores.
+  
+  Uma outra característica desse teste é que ele é rápido, ele vai validar o comportamento de uma função que faz algo específico. Então é sempre bom que esses testes sejam automatizados para que esses componentes sempre sejam testados em todas as atualizações. Por que? Além dos fatores que já exemplificamos, existe um risco a mais, como estamos tratando da menor parte do código, se algo nesses componentes estiver com mau funcionamento o erro pode se propagar para qualquer parte do sistema e fazer com que outras partes fiquem com comportamentos errados.
+
+  ---
+> Teste de integração de componentes / Teste de integração de unidades e Teste de integração de sistema
+
+  O teste de integração em si, independente se é de componente ou de sistema, é validar a integração de duas ou mais partes, validar o funcionamento dessas partes quando elas estão juntas, interligadas. 
+
+  Quando olhamos a integração de componentes, é um nível acima do teste anterior, mas ainda é um teste bem específico que depende do acesso ao código e pode ser executado pelos desenvolvedores.
+    
+  Já a integração de sistemas é um nível bem maior de abstração que o anterior, mas ainda tem um certo nível de especificidade, você como testador vai analisar os comportamentos dos sistemas quando eles trabalham juntos, olhando os detalhes que não chegam no usuário. Exemplo: digamos que você tenha que testar a integração de uma API com o banco de dados, então você vai fazer cenários para validar se a API está mandando e recebendo os dados de forma correta, se a integração com o banco está correto. Por isso não é necessário e às vezes nem tem permissão para acessar o código fonte desses sistemas.
+
+  Esses testes podem ser feitos de forma automatizada e utilizados nas CI, sendo uma validação feita em todas as entregas contínuas. O motivo, facilitar o descobrimento do motivo de possíveis falhas, se você testar todas as integrações assim que são feitas, a identificação dos problemas será investigando apenas as mudanças mais recentes, porém se deixar pra testar tudo junto vai ser mais complicado tentar achar qual das integrações ou aonde exatamente no sistema esta a razão da falha encontrada.
+
+---
+> Teste de sistema
+  
+  Esse nível  de teste é bem mais abstrato, ele vai simular as ações dos usuários. É o teste mais comum que as pessoas veem sendo feito quando se fala de teste automatizado, onde aparece as telas do sistema sendo abertas e utilizadas de forma automática. Geralmente o teste vai executar um fluxo completo de ações, o chamado testes end-to-end, em que o testador vai definir os fluxos que o usuário pode fazer no sistema e executá-los validando os comportamentos funcionais e não funcionais do sistema, se eles estão de acordo como foram planejados e especificados.
+
+  Esse nível de teste produz informações que serão utilizadas para tomar decisões de liberação. O sistema quando chega nesse nível de teste, subtende-se que já está bem avançado em questão de desenvolvimento e que está próximo da liberação para o mercado, então o teste de sistema é quem pode dar o feedback de que o sistema está pronto para as próximas etapas. 
+  
+  Ele também tem um risco, se os testes anteriores não tiverem sido feitos, ou não foram feitos de maneira correta, o teste de sistema pode pegar vários erros herdados de componentes ou de integrações e fazer com que o processo de correção seja mais custoso, já que o código vai precisar retornar a etapas que deveriam ter sido concluídas.
+
+---
+
+> Teste de aceite
+
+  Esse é o último nível, nele não estamos atrás de encontrar defeitos, o foco é apresentar o sistema e garantir que esteja funcionando da maneira como especificado para o usuário final. Se for encontrado defeitos, eles são considerados de grandes riscos para o projeto por ter perdurado por todos os outros níveis e chegado até essa etapa.
+
+  Então nesse nível quem vai executar os testes serão os clientes, usuários finais, proprietários do produto, operadores de sistemas e stakeholders. 
+  
+  Alguns dos testes de aceite são:
+  - Aceite de usuário (User Acceptance Testing UAT): O objetivo é basicamente o que definimos, certificar que o sistema atenda as necessidades do usuário. A validação pode ser feita em ambiente de produção ou simulado, mas sempre usando os usuários como executores.
+  - Aceite operacional: O objetivo é garantir que os operadores, os administradores do sistema conseguem manter ele funcionando adequadamente para os usuários no ambiente de produção. Vão validar se o usuário consegue fazer backups e restaurações, validar a performance do sistema, e vulnerabilidades de segurança.
+  - Aceite contratual e normativo: Esse teste é voltado para sistemas que têm que seguir alguma regra ou lei. Então o objetivo é garantir que o sistema segue a conformidade contratual ou regulatória que foi definida na contratação do desenvolvimento do software. A execução e os resultados podem ser acompanhados por testemunhas ou agências reguladoras.
+  - Teste Alfa e Beta: Mesma ideia, testar o sistema com usuários. A diferença é que o teste alfa é feito no local em que o sistema foi desenvolvido, e no teste beta o cliente recebe uma cópia do sistema para testar fora de onde foi desenvolvido.
+
+
+
+### 2.2.2 Distinguir os diferentes tipos de teste.
+
+
+### 2.2.3 Distinguir o teste de confirmação do teste de regressão.
