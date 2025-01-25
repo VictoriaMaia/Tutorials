@@ -259,5 +259,55 @@ No syllabus existem 5 níveis de teste:
 
 ### 2.2.2 Distinguir os diferentes tipos de teste.
 
+- Teste Funcional
+  
+  Ele vai avaliar **o que** o sistema deve fazer. Então ele vai avaliar as funções que um componente ou sistema deve executar. Ou seja, está funcionando de acordo com o que foi definido?
+  
+  Algumas características:
+    - A sua eficácia é medida através da cobertura funcional
+    - Quem vai fazer esses testes vai precisar de conhecimentos sobre as regras de negócio
+
+
+- Teste Não Funcional
+
+  Ele vai avaliar **o quão bem** o sistema funciona. Ele vai avaliar as características do software, como: eficiência de performance, compatibilidade, usabilidade, confiabilidade, segurança, capacidade de manutenção e portabilidade. 
+
+  São testes mais subjetivos, não é uma funcionalidade que tem que ter um comportamento específico, são mais características que o software deve ter mas que tem que ser definido o que é o "aceitável". Exemplo: Qual é a quantidade de tempo aceitável que o sistema deve demorar para responder? Ele tem que ser compatível com quais sistemas operacionais ou com quais versões de softwares terceiros? 
+
+  Algumas características:
+    - A sua eficácia é medida através da cobertura não funcional
+    - Quem vai fazer esses testes vai precisar de conhecimentos sobre tecnologias que podem ser utilizadas para a validação dessas características e conhecimentos técnicos para identificar os possíveis problemas.
+
+
+- Teste Caixa-Preta
+
+  O nome é literal, o sistema vai se comportar como uma caixa preta, você não vai ver dentro do sistema, vai analisar ele pelo que ele te retorna de comportamento. 
+  
+  Então o teste de caixa preta é um tipo de teste que é baseado nas especificações do sistema (nas documentações, requisitos, etc) sem ter acesso às estruturas internas do software, como por exemplo o código fonte.
+
+  O principal objetivo é verificar o comportamento do sistema em relação ao que está definido nas suas especificações. Se está se comportando como foi definido. O como está fazendo não entra aqui.
+
+
+- Teste Caixa-Branca
+
+  No de caixa branca é ao contrário, eu tenho acesso total às infraestruturas do sistema, ao código fonte e se baseando nessa estrutura interna do sistema é que os cenários de teste vão ser feitos.
+
+  Algumas características:
+    - A sua eficácia é medida através da cobertura estrutural. Quantos testes exercitam as partes do código ou os componentes, etc.
+    - Quem vai fazer esses testes vai precisar de conhecimentos sobre como o código foi construído.
+  
+  ! O teste de componente, majoritariamente é feito utilizando teste de caixa branca
+
+> Todos esses tipos de teste podem/devem ser aplicados em todos os níveis de teste
+
 
 ### 2.2.3 Distinguir o teste de confirmação do teste de regressão.
+
+Sempre há alteração no sistema, seja para aprimorá-lo adicionando novas features, novos recursos, seja removendo um defeito encontrado. E sempre que há alteração é necessário testar para saber se esta funcionando corretamente. E com isso aparece os outros dois tipos de testes o teste de confirmação e o de regressão.
+
+- Teste de confirmação
+
+  
+
+- Teste de regressão
+
