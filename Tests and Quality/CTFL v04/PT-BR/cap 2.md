@@ -20,6 +20,7 @@ Essa explicação é baseada em:
     - [2.2.1 Distinguir os diferentes níveis de teste.](#221-distinguir-os-diferentes-níveis-de-teste)
     - [2.2.2 Distinguir os diferentes tipos de teste.](#222-distinguir-os-diferentes-tipos-de-teste)
     - [2.2.3 Distinguir o teste de confirmação do teste de regressão.](#223-distinguir-o-teste-de-confirmação-do-teste-de-regressão)
+  - [2.3 Teste de Manutenção](#23-teste-de-manutenção)
 
 
 ## 2.1 Testes no contexto de um Ciclo de Vida de Desenvolvimento de Software
@@ -303,11 +304,36 @@ No syllabus existem 5 níveis de teste:
 
 ### 2.2.3 Distinguir o teste de confirmação do teste de regressão.
 
-Sempre há alteração no sistema, seja para aprimorá-lo adicionando novas features, novos recursos, seja removendo um defeito encontrado. E sempre que há alteração é necessário testar para saber se esta funcionando corretamente. E com isso aparece os outros dois tipos de testes o teste de confirmação e o de regressão.
+Sempre há alteração no sistema, seja para aprimorá-lo adicionando novas features, novos recursos, seja removendo um defeito encontrado. E sempre que há alteração é necessário testar para saber se está funcionando corretamente. Com isso temos os outros dois tipos de testes: o teste de confirmação e o de regressão.
 
 - Teste de confirmação
 
+  Característica principal: **Confirmar se um defeito foi corrigido com sucesso**. 
   
+  Às vezes um defeito impacta em muitas features, então quando uma correção é feita, tem que fazer novamente a execução do cenário que encontrou o defeito, para garantir que o defeito foi corrigido e também executar novamente todos os cenários que falharam ou ficaram bloqueados por conta desse defeito.
+  
+  Além de retestar tudo, é bom adicionar novos testes para cobrir quaisquer alterações que foram necessárias serem feitas na correção do defeito.
+
+  > Quando se tem pouco recurso (seja de tempo ou dinheiro) no projeto e não dá para fazer tudo o que foi dito, o teste de confirmação pode se contar em apenas executar novamente as etapas que reproduziram a falha para validar a correção.
+
 
 - Teste de regressão
 
+  Característica principal: **Garantir que o que funciona, continua funcionando**. Esse teste vai detectar efeitos colaterais do desenvolvimento.
+
+  Qualquer alteração feita no sistema pode necessitar de alterações em outras partes. O software tem dependências, integrações que podem acabar precisando ser alteradas quando é feito uma atualização de alguma feature. Com isso em mente, o teste de regressão vai tentar detectar se alguma mudança (seja ela qual for) não impactou negativamente em nenhuma outra feature, vai tentar detectar que o que já está funcionando continuou funcionando com a mudança feita.
+
+  Os testes de regressão são fortes candidatos a serem testes automatizados com uma CI, por ser um tipo de teste que precisa ser executado várias vezes. Cada mudança é necessário executar todos os cenários que já existiam e criar novos cenários para cobrir o que veio de novo. Então a cada iteração e versão do software é aumentado o número de casos de teste.
+
+
+## 2.3 Teste de Manutenção
+
+   Quando o software vai ao mercado, e seus clientes começam de fato a usa-lo é necessário começar a etapa de manutenção. O sistemas precisa ser mantido de forma funcional, sempre será preciso fazer algo. Então pode ser necessário fazer alguma ação de manutenção como:
+  
+    - Modificação: qualquer alteração como aprimoramentos, atualizações, correções, hot fixes, atualizações operacionais.
+    - Atualização/Migração: migrações ou atualizações de plataforma ou ambiente operacional.
+    - Aposentadoria: quando um sistema chega ao fim da sua vida útil. É necessario testes de arquivamento/retenção/restauração dos dados.
+  
+  Antes de fazer qualquer mudança é sempre bom fazer uma análise de impacto, pra ajudar na decisão se deve ou não ser feita essa mudança, quais as possíveis consequências, os passos necessários, etc.
+
+  Então o teste aqui vai ser aplicado para validar o sucesso da implementação de alguma manuntenção e verificar se não teve nenhum efeito colateral no resto do sistema (no fim das contas aqui é o teste de regressão). O escopo desse tipo de teste depende do grau de risco da mudança, o tamanho da mudança, e o tamanho do sistema.
