@@ -33,15 +33,20 @@ In pycache have informations about the failed tests, so you can execute only the
 
 These are the flags that you can use and what each one do:
 
-|Flag                    | Description                                           |
-|-----                   | -----------                                           |
-| -v                     | Show more details about the test execution            |
-| -s                     | Show the prints of the tests                          |
-| --lf or --last-failed  | Only re-run the failures                              |
-| --ff or --failed-first | Run the failures first and then the rest of the tests |
-| -timeout <value>       | Set a timeout in seconds                              |
-| -m <label>             | Run a group of tests. You can use logical operators   |
-
+|Flag                    | Description                                                          |
+|-----                   | -----------                                                          |
+| -v                     | Show more details about the test execution                           |
+| -s                     | Show the prints of the tests                                         |
+| --lf or --last-failed  | Only re-run the failures                                             |
+| --ff or --failed-first | Run the failures first and then the rest of the tests                |
+| -timeout <value>       | Set a timeout in seconds                                             |
+| -m <label>             | Run a group of tests. You can use logical operators                  |
+| -k <test_name>         | Filter for modules and test functions. You can use logical operators |
+| --tb=no                | You modify the traceback printing, no traceback at all               |
+| -x                     | Stop after first failure                                             |
+| --maxfail              | Stop after specified 'maxfail'                                       |
+| -q                     | Quiet, not verbose                                                   |
+| --co or --collect-only | Onyly collect the tests, don't execute them                          |
 
 
 It's not a command, but it's very usefull to know:
@@ -99,6 +104,28 @@ def test_1():
 def test_2():
     ...
 ```
+
+If it have some bug know and not yet fixed or some feature not yet implemented but you have the scenario implemented you add a mark informing that is expected to fail given an reason, like that:
+
+```
+import pytest
+
+@pytest.mark.xfail(raises=IndexError, reason="It is a known issue")
+def test_with_group():
+    ...
+```
+
+You want add the expected raises to verify if failing given an know issue.
+
+
+Some outcomes:
+- Passed (.)
+- Failed (F)
+- Skipped (s)
+- XFail (x)
+- XPass (X)
+- Error (E)
+
 
 
 
