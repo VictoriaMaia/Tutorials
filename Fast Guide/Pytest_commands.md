@@ -127,6 +127,16 @@ Some outcomes:
 - Error (E)
 
 
+Some tests can receive parameters like this:
+
+```
+import pytest
+
+@pytest.mark.parametrize(<variable>, <values>)
+@pytest.mark.parametrize('test_input', [82,78,45]):
+
+```
+
 
 
 -------------------------------------
