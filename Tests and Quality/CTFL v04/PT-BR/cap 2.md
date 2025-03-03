@@ -328,12 +328,12 @@ Sempre há alteração no sistema, seja para aprimorá-lo adicionando novas feat
 
 ## 2.3 Teste de Manutenção
 
-   Quando o software vai ao mercado, e seus clientes começam de fato a usa-lo é necessário começar a etapa de manutenção. O sistemas precisa ser mantido de forma funcional, sempre será preciso fazer algo. Então pode ser necessário fazer alguma ação de manutenção como:
+   Quando o software vai ao mercado, e seus clientes começam de fato a usá-lo é necessário começar a etapa de manutenção. O sistemas precisa ser mantido de forma funcional, sempre será preciso fazer algo. Então pode ser necessário fazer alguma ação de manutenção como:
   
-    - Modificação: qualquer alteração como aprimoramentos, atualizações, correções, hot fixes, atualizações operacionais.
+    - Modificação: qualquer alteração como aprimoramentos, atualizações, correções, hotfixes, atualizações operacionais.
     - Atualização/Migração: migrações ou atualizações de plataforma ou ambiente operacional.
-    - Aposentadoria: quando um sistema chega ao fim da sua vida útil. É necessario testes de arquivamento/retenção/restauração dos dados.
+    - Aposentadoria: quando um sistema chega ao fim da sua vida útil. É necessário testes de arquivamento/retenção/restauração dos dados.
   
-  Antes de fazer qualquer mudança é sempre bom fazer uma análise de impacto, pra ajudar na decisão se deve ou não ser feita essa mudança, quais as possíveis consequências, os passos necessários, etc.
+  Antes de fazer qualquer mudança é sempre bom fazer uma análise de impacto, para ajudar na decisão se deve ou não ser feita essa mudança, quais as possíveis consequências, os passos necessários, etc.
 
-  Então o teste aqui vai ser aplicado para validar o sucesso da implementação de alguma manuntenção e verificar se não teve nenhum efeito colateral no resto do sistema (no fim das contas aqui é o teste de regressão). O escopo desse tipo de teste depende do grau de risco da mudança, o tamanho da mudança, e o tamanho do sistema.
+  Então o teste aqui vai ser aplicado para validar o sucesso da implementação de alguma manutenção e verificar se não teve nenhum efeito colateral no resto do sistema (no fim das contas aqui é o teste de regressão). O escopo desse tipo de teste depende do grau de risco da mudança, o tamanho da mudança, e o tamanho do sistema.
