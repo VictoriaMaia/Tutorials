@@ -127,16 +127,84 @@ Some outcomes:
 - Error (E)
 
 
-Some tests can receive parameters like this:
+Some tests can receive parameters, and the input parameters can be a list of everything:
 
 ```
 import pytest
 
-@pytest.mark.parametrize(<variable>, <values>)
-@pytest.mark.parametrize('test_input', [82,78,45]):
+# @pytest.mark.parametrize(<variable>, <values>)
+
+@pytest.mark.parametrize('test_input', [82,78,45])
+def test1(test_input):
+    ...
+
+@pytest.mark.parametrize("inp, out", [(2,4), (3,27)]):
+def test2(inp, out):
+    ...
+
+
+data = [
+    ([2,3,4], 'sum', 9),
+    ([2,3,4], 'prod', 24)
+]
+
+@pytest.mark.parametrize("values, op, result", data):
+def test3(values, op, result):
+    ...
 
 ```
 
+If you need to do some task before or after the tests like connect database, or delete temporary folder, you should use the fixture. You can put fixtures in individual test files or, in conftest.py for making fixtures available in multiple test files.
+
+NOTE: You can use the setup_method/teardown_method to do the same action, but the fixture is more flexible and can do more configurations.
+
+```
+# This example the test receive an list that was created before the test
+
+import pytest
+
+@pytest.fixture()
+def setup_list():
+    city = ['C1', 'C2', C3']
+    return city # this return is optional. The test can access the city variable
+
+def test(setup_list):
+    ...
+```
+
+You can use markers to use the fixture, like this:
+
+```
+import pytest
+
+@pytest.fixture()
+def setup():
+    # using the marker you don't need return value. The test function cannot use the return values
+
+@pytest.mark.usefixtures("setup")
+def test():
+    ...
+```
+
+If you need a teardown, you can use the yield tool. The yield stop the function returning the variable and the code will execute the test. After the test finish the yield returns to finish your execution.
+
+```
+import pytest
+
+weekdays1 = ['mon', 'tue', 'wed']
+
+@pytest.fixture()
+def setup():
+    wk1 = weekdays1.copy()
+    wk1.append('thur')
+    yield wki 
+    print("\n After yield")
+    wk1.pop()
+
+
+def test(setup):
+    assert setup == ['mon', 'tue', 'wed', 'thur']
+```
 
 
 -------------------------------------
