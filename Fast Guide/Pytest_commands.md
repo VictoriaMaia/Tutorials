@@ -46,7 +46,8 @@ These are the flags that you can use and what each one do:
 | -x                     | Stop after first failure                                             |
 | --maxfail              | Stop after specified 'maxfail'                                       |
 | -q                     | Quiet, not verbose                                                   |
-| --co or --collect-only | Onyly collect the tests, don't execute them                          |
+| --co or --collect-only | Only collect the tests, don't execute them                           |
+| --setup-show           | Show the which fixture the test use. **M** is a fixture used in the module and **F** is a fixture used in a function                                                           |
 
 
 It's not a command, but it's very usefull to know:
@@ -204,6 +205,66 @@ def setup():
 
 def test(setup):
     assert setup == ['mon', 'tue', 'wed', 'thur']
+```
+
+You can use more that one fixtures, just pass them as parameter in your test function.
+
+To organize the test project better, you can create a "conftest.py" file and create the fixtures in this file. The fixtures will be centralized in a directory for all tests to access. 
+
+It should not be imported by test files!
+ 
+You can define some variables in this conf file, using the "pytest_configure". Please check if this function was not deprectead.
+
+```
+import pytest
+
+def pytest_configure():
+    pytest.weekdays1 = ['mon', 'tue', 'wed']
+
+
+@pytest.fixture()
+def setup():
+    wk1 = pytest.weekdays1.copy()
+    wk1.append('thur')
+    yield wki 
+    print("\n After yield")
+    wk1.pop()
+```
+
+Remember: Fixtures can be overriden from test module level!
+
+Fixtures have a scope, you can set the fixture to use in all module or just in a function. You just need pass scope as parameter.
+
+You can access variables and informations in fixtures that they was defined in a test file:
+
+```
+import pytest
+
+@pytest.fixture()
+def setup(request):
+    var = getattr(request.module, "var_name")
+    fixture_scope = str(request.scope)
+    test_function_that_call_this_fixture = str(request.function.__name__)
+    module_that_have_the_test_that_call_this_fixture = str(request.module.__name__)
+```
+
+You can use factories as fixture, returning a function in fixture to test can use it:
+
+```
+import pytest
+
+@pytest.fixture()
+def setup(request):
+    def get_structure(name):
+        if name == 'list':
+            return [1,2]
+        elif name == 'tuple':
+            retunr (1,2)
+    return get_structure
+
+
+def teste(setup):
+    assert type(setup('list')) == list
 ```
 
 
