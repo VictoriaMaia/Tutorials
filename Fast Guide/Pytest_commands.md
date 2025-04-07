@@ -231,9 +231,18 @@ def setup():
     wk1.pop()
 ```
 
+Fixtures have a scope, you can set the fixture to use in all module or just in a function. You just need pass scope as parameter.
+
+Fixtures are created when first requested by a test, and are destroyed based on their scope:
+
+- function (default scope)(is a test): is destroyed at the end of the test
+- class (is all tests inside a same class): is destroyed during teardown of the last test in the class
+- module (is all tests inside a same file): is destroyed during teardown of the last test in the module
+- package (is all tests inside a same folder): is destroyed during teardown of the last test in the package 
+- session (is a test session, all tests): is destroyed at the end of the test session 
+
 Remember: Fixtures can be overriden from test module level!
 
-Fixtures have a scope, you can set the fixture to use in all module or just in a function. You just need pass scope as parameter.
 
 You can access variables and informations in fixtures that they was defined in a test file:
 
@@ -254,7 +263,7 @@ You can use factories as fixture, returning a function in fixture to test can us
 import pytest
 
 @pytest.fixture()
-def setup(request):
+def setup():
     def get_structure(name):
         if name == 'list':
             return [1,2]
@@ -266,6 +275,23 @@ def setup(request):
 def teste(setup):
     assert type(setup('list')) == list
 ```
+
+Parametrizing from fixtures. It was execute the same way of the test using parametrizing, the test will run to all values returned in fixtures. Example:
+
+```
+import pytest
+
+@pytest.fixture(params = [(1,2), [1,2]])
+# you can use ids to identify the parameters:
+# @pytest.fixture(params = [(1,2), [1,2]], ids=['tuple', 'list'])
+def setup(request):
+    return request.param
+
+
+def teste(setup):
+    assert type(setup) in [tuple, list]
+```
+
 
 
 -------------------------------------
