@@ -1,3 +1,14 @@
+#TODO Add some usable examples related a real tests
+#TODO And examples following differents structures (e.g. Test scenarios inside a class or a file)
+#TODO Add pytest.ini example
+#TODO Add sections to be more organized
+#TODO Add inital description
+
+- [Some commands and tips to run your tests in pytest framework.](#some-commands-and-tips-to-run-your-tests-in-pytest-framework)
+  - [Pytest configurations](#pytest-configurations)
+  - [Refence:](#refence)
+
+
 # Some commands and tips to run your tests in pytest framework.
 
 The simple command that run all tests:
@@ -293,9 +304,121 @@ def teste(setup):
 ```
 
 
+You can pass arguments to test, one of the ways to do this is creating functions inside a conftest.py file like this:
+
+```
+import pytest
+# import os  # **
+
+qa_config = 'qa.prop'
+prod_config = 'prod.prop'
+
+def pytest_addoption(parser):
+    parser.addoption("--cmdopt", default='QA')
+
+
+@pytest.fixture()
+def CmdOpt(pytestconfig):
+    opt = pytestconfig.getoption("cmdopt)
+    if opt == 'Prod'
+        f = open(prod_config, 'r')
+        # f = open(os.path.join(os.path.dirname(__file__),prod_config), 'r') # **
+    else:
+        f = open(qa_config, 'r')
+        # f = open(os.path.join(os.path.dirname(__file__),qa_config), 'r') # **
+    
+    yield f
+```
+
+In a test file:
+
+```
+def test(CmdOpt):
+    print(CmdOpt.readline())
+```
+
+To run:
+
+$ pytest -v root/test_filename.py --cmdopt=Prod -s
+
+If the test that you want run is an internal folder like this:
+
+|- root
+|--  specific_test_folder
+|---   test_file.py
+|---   qa.prop
+|---   prod.prop
+|--  conftest.py
+
+The command will failed because it not found the files. So to fix this just add the line with ** above
+
+## Pytest configurations
+
+You can set some configurations of pytest. There are several configurations that you can choose and some types of config files, so it more easy you see these documentations: 
+
+- [Configuration file formats](https://docs.pytest.org/en/stable/reference/customize.html)
+- [Configuration options](https://docs.pytest.org/en/stable/reference/reference.html#configuration-options)
+
+You can run to see the options:
+
+$ pytest --help
+
+
+You can define utils file to read necessary data files to tests. Just create an folder to add your data files and in the utils create the functions to read and return the data. In the test you use the python.mark.parametrize passing the parameters that will returned and the function name that was created in utils.
+
+
+> Explanation: The configparser lib is used to read and write config files in ini format. It is util to save path, passwords, parameters, etc.
+
+Usefull:
+
+-> config_file_that_have_credentials.ini
+```
+[gmail]
+user = email_user
+```
+
+-> utils_file_that_read_and_share_informations_of_the_conf_file.py
+```
+import configparser
+from pathlib import Path 
+
+cfgFile = 'config_file_that_have_credentials.ini'
+cfgFileDir = 'config'
+
+config = configparser.ConfigParser()
+BASE_DIR = Path(_file__).resolve().parent.parent
+CONFIG_FILE = BASE_DIR.joinpath(cfgFileDir).joinpath(cfgFile)
+
+config.read(CONFIG_FILE)
+
+def getGmailUser():
+    return (config['gmail']['url'])
+```
+
+Or using a Class:
+```
+import configparser
+from pathlib import Path 
+
+class ConfigFileParser():
+    cfgFile = 'config_file_that_have_credentials.ini'
+    cfgFileDir = 'config'
+    config = configparser.ConfigParser()
+
+    def __init__(self, cfg=cfgFile):
+        self.cfgFile = cfg
+        self.BASE_DIR = Path(_file__).resolve().parent.parent
+        self.CONFIG_FILE = BASE_DIR.joinpath(cfgFileDir).joinpath(cfgFile)
+        self.config.read(CONFIG_FILE)
+
+    def getGmailUser(self):
+        return (self.config['gmail']['url'])
+```
+
+
 
 -------------------------------------
-### Refence: 
+## Refence: 
 
 [Doc pytest cache](https://docs.pytest.org/en/latest/how-to/cache.html)
 
